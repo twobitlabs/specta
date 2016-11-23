@@ -89,6 +89,10 @@ void describe(NSString *name, void (^block)()) {
   spt_defineDescribeBlock(name, NO, block);
 }
 
+void spt_describe(NSString *name, void (^block)()) {
+  spt_defineDescribeBlock(name, NO, block);
+}
+
 void fdescribe(NSString *name, void (^block)()) {
   spt_defineDescribeBlock(name, YES, block);
 }
@@ -97,11 +101,19 @@ void context(NSString *name, void (^block)()) {
   describe(name, block);
 }
 
+void spt_context(NSString *name, void (^block)()) {
+  describe(name, block);
+}
+
 void fcontext(NSString *name, void (^block)()) {
   fdescribe(name, block);
 }
 
 void it(NSString *name, void (^block)()) {
+  spt_defineItBlock(name, nil, 0, NO, block);
+}
+
+void spt_it(NSString *name, void (^block)()) {
   spt_defineItBlock(name, nil, 0, NO, block);
 }
 

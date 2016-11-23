@@ -11,12 +11,15 @@
 typedef void (^DoneCallback)(void);
 
 OBJC_EXTERN void describe(NSString *name, void (^block)());
+OBJC_EXTERN void spt_describe(NSString *name, void (^block)());
 OBJC_EXTERN void fdescribe(NSString *name, void (^block)());
 
 OBJC_EXTERN void context(NSString *name, void (^block)());
+OBJC_EXTERN void spt_context(NSString *name, void (^block)());
 OBJC_EXTERN void fcontext(NSString *name, void (^block)());
 
 OBJC_EXTERN void it(NSString *name, void (^block)());
+OBJC_EXTERN void spt_it(NSString *name, void (^block)());
 OBJC_EXTERN void fit(NSString *name, void (^block)());
 
 OBJC_EXTERN void example(NSString *name, void (^block)());
@@ -63,7 +66,7 @@ OBJC_EXTERN void setAsyncSpecTimeout(NSTimeInterval timeout);
 // ----------------------------------------------------------------------------
 
 #define _SPTSpecBegin(name, file, line) \
-@interface name##Spec : SPTSpec \
+@interface name##Spec : BaseSpec \
 @end \
 @implementation name##Spec \
 - (void)spec { \

@@ -93,6 +93,7 @@ void spt_describe(NSString *name, void (^block)()) {
   spt_defineDescribeBlock(name, NO, block);
 }
 
+
 void fdescribe(NSString *name, void (^block)()) {
   spt_defineDescribeBlock(name, YES, block);
 }
@@ -142,7 +143,17 @@ void beforeAll(void (^block)()) {
   [SPTCurrentGroup addBeforeAllBlock:block];
 }
 
+void spt_beforeAll(void (^block)()) {
+  SPTReturnUnlessBlockOrNil(block);
+  [SPTCurrentGroup addBeforeAllBlock:block];
+}
+
 void afterAll(void (^block)()) {
+  SPTReturnUnlessBlockOrNil(block);
+  [SPTCurrentGroup addAfterAllBlock:block];
+}
+
+void spt_afterAll(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterAllBlock:block];
 }
@@ -152,7 +163,17 @@ void beforeEach(void (^block)()) {
   [SPTCurrentGroup addBeforeEachBlock:block];
 }
 
+void spt_beforeEach(void (^block)()) {
+  SPTReturnUnlessBlockOrNil(block);
+  [SPTCurrentGroup addBeforeEachBlock:block];
+}
+
 void afterEach(void (^block)()) {
+  SPTReturnUnlessBlockOrNil(block);
+  [SPTCurrentGroup addAfterEachBlock:block];
+}
+
+void spt_afterEach(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterEachBlock:block];
 }

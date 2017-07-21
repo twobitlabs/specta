@@ -36,10 +36,14 @@ OBJC_EXTERN void fspecify(NSString *name, void (^block)());
 #define  xspecify(...) spt_pending_(__VA_ARGS__, nil)
 
 OBJC_EXTERN void beforeAll(void (^block)());
+OBJC_EXTERN void spt_beforeAll(void (^block)());
 OBJC_EXTERN void afterAll(void (^block)());
+OBJC_EXTERN void spt_afterAll(void (^block)());
 
 OBJC_EXTERN void beforeEach(void (^block)());
+OBJC_EXTERN void spt_beforeEach(void (^block)());
 OBJC_EXTERN void afterEach(void (^block)());
+OBJC_EXTERN void spt_afterEach(void (^block)());
 
 OBJC_EXTERN void before(void (^block)());
 OBJC_EXTERN void after(void (^block)());

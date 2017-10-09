@@ -11,15 +11,15 @@
 typedef void (^DoneCallback)(void);
 
 OBJC_EXTERN void describe(NSString *name, void (^block)(void));
-OBJC_EXTERN void spt_describe(NSString *name, void (^block)());
+OBJC_EXTERN void spt_describe(NSString *name, void (^block)(void));
 OBJC_EXTERN void fdescribe(NSString *name, void (^block)(void));
 
 OBJC_EXTERN void context(NSString *name, void (^block)(void));
-OBJC_EXTERN void spt_context(NSString *name, void (^block)());
+OBJC_EXTERN void spt_context(NSString *name, void (^block)(void));
 OBJC_EXTERN void fcontext(NSString *name, void (^block)(void));
 
 OBJC_EXTERN void it(NSString *name, void (^block)(void));
-OBJC_EXTERN void spt_it(NSString *name, void (^block)());
+OBJC_EXTERN void spt_it(NSString *name, void (^block)(void));
 OBJC_EXTERN void fit(NSString *name, void (^block)(void));
 
 OBJC_EXTERN void example(NSString *name, void (^block)(void));
@@ -36,10 +36,14 @@ OBJC_EXTERN void fspecify(NSString *name, void (^block)(void));
 #define  xspecify(...) spt_pending_(__VA_ARGS__, nil)
 
 OBJC_EXTERN void beforeAll(void (^block)(void));
+OBJC_EXTERN void spt_beforeAll(void (^block)(void));
 OBJC_EXTERN void afterAll(void (^block)(void));
+OBJC_EXTERN void spt_afterAll(void (^block)(void));
 
 OBJC_EXTERN void beforeEach(void (^block)(void));
+OBJC_EXTERN void spt_beforeEach(void (^block)(void));
 OBJC_EXTERN void afterEach(void (^block)(void));
+OBJC_EXTERN void spt_afterEach(void (^block)(void));
 
 OBJC_EXTERN void before(void (^block)(void));
 OBJC_EXTERN void after(void (^block)(void));
